@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">灵映</string>
+    <string name="background_gesture_accessibility_description">允许灵映在后台把已确认的动态手势转换为滑动和缩放操作。图像仅在本机处理。</string>
+</resources>

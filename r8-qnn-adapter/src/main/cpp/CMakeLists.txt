@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.22.1)
+project(r8_qnn_adapter LANGUAGES CXX)
+
+add_library(r8_qnn_adapter SHARED r8_qnn_runtime.cpp)
+if(DEFINED QAIRT_SDK_ROOT AND NOT QAIRT_SDK_ROOT STREQUAL "")
+    set(QNN_INCLUDE_DIR "${QAIRT_SDK_ROOT}/include/QNN")
+elseif(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/include/QNN/QnnInterface.h")
+    set(QNN_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/include/QNN")
+else()
+    message(FATAL_ERROR "Set QAIRT_SDK_ROOT to a lawfully obtained Qualcomm AI Runtime SDK")
+endif()
+target_include_directories(r8_qnn_adapter PRIVATE "${QNN_INCLUDE_DIR}")
+target_link_libraries(r8_qnn_adapter PRIVATE android jnigraphics log dl)

@@ -1,0 +1,73 @@
+# Android / Gradle
+.gradle/
+.idea/
+.kotlin/
+**/build/
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Signing
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+keystore.properties
+dist/
+
+# Private SDKs and generated native runtimes
+**/src/**/jniLibs/
+**/include/QNN/
+qairt/
+qnn-sdk/
+
+# Model and media assets that require separate redistribution review
+app/src/main/assets/*.task
+app/src/main/assets/*.tflite
+app/src/main/assets/*.glb
+app/src/main/assets/MODEL_SHA256.txt
+
+# Local data, reports, experiments and delivery packages
+.downloads/
+data/
+datasets/
+artifacts/
+benchmark/
+test-results/
+reports/
+results/
+public-source/.gradle/
+*.hprof
+tmp/
+*.apk
+*.aab
+*.apks
+*.7z
+*.tar
+*.tar.gz
+*.tar.xz
+*.zip
+*.001
+*.002
+
+# Python tools
+.venv/
+.pytest_cache/
+__pycache__/
+*.pyc
+
+# Local research notes and agent state
+.learnings/
+task_plan.md
+progress.md
+findings.md
+origin_request.txt
+device_screen*.png
+window.xml
+
+# OS
+.DS_Store
+Thumbs.db

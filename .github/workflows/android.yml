@@ -1,0 +1,38 @@
+name: Android CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: gradle
+      - uses: android-actions/setup-android@v3
+      - name: Verify restricted files are absent
+        run: |
+          test -z "$(find . -type f \( -name '*.jks' -o -name '*.keystore' -o -path '*/include/QNN/*' -o -path '*/jniLibs/*' \) -print -quit)"
+      - name: Test, lint and build public variant
+        run: >-
+          ./gradlew --no-daemon
+          :recognition-core:test
+          :app:testDebugUnitTest
+          :app:lintDebug
+          :app:assembleDebug
+          :app:assembleDebugAndroidTest
+      - name: Verify offline permission boundary
+        run: |
+          AAPT="$(find "$ANDROID_HOME/build-tools" -type f -name aapt | sort -V | tail -1)"
+          test -n "$AAPT"
+          if "$AAPT" dump permissions app/build/outputs/apk/debug/app-debug.apk | grep -E "android.permission.(INTERNET|ACCESS_NETWORK_STATE)"; then
+            echo "Network permission found in offline APK"
+            exit 1
+          fi
