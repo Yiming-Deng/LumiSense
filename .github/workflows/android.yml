@@ -9,6 +9,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GRADLE_OPTS: -Dorg.gradle.daemon=false -Xmx4g -Dfile.encoding=UTF-8
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-java@v5
@@ -17,12 +20,14 @@ jobs:
           java-version: "17"
           cache: gradle
       - uses: android-actions/setup-android@v3
+      - name: Install Android SDK components
+        run: sdkmanager "platforms;android-36" "build-tools;36.0.0" "ndk;27.2.12479018"
       - name: Verify restricted files are absent
         run: |
           test -z "$(find . -type f \( -name '*.jks' -o -name '*.keystore' -o -path '*/include/QNN/*' -o -path '*/jniLibs/*' \) -print -quit)"
       - name: Test, lint and build public variant
         run: >-
-          ./gradlew --no-daemon
+          ./gradlew --no-daemon --console=plain --stacktrace
           :recognition-core:test
           :app:testDebugUnitTest
           :app:lintDebug
