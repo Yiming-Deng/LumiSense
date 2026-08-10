@@ -137,7 +137,7 @@ class GestureControlForegroundService : LifecycleService() {
             return
         }
         if (!BackgroundGestureControl.isAccessibilityEnabled(this)) {
-            failAndStop("请先启用 OppoVisual 无障碍服务")
+            failAndStop("请先启用 LumiSense 无障碍服务")
             return
         }
         val generation = ++cameraBindingGeneration

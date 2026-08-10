@@ -14,7 +14,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Oppovision"
+rootProject.name = "LumiSense"
 include(":app")
 include(":recognition-core")
 include(":r8-litert-adapter")

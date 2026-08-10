@@ -1,4 +1,4 @@
-# 灵映（Oppovision）
+# 灵映（LumiSense）
 
 灵映是一款完全离线运行的 Android 视觉交互应用。它使用前置摄像头完成手部检测、21 点关键点定位、静态手势分类、动态手势交互，以及面部表情、头部动作和虚拟形象驱动。相机帧只在设备本地处理。
 
@@ -39,4 +39,4 @@
 - [第三方声明](THIRD_PARTY_NOTICES.md)
 - [发布政策](RELEASE_POLICY.md)
 
-Copyright 2026 Oppovision contributors. Licensed under the Apache License, Version 2.0.
+Copyright 2026 LumiSense contributors. Licensed under the Apache License, Version 2.0.
