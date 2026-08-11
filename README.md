@@ -5,9 +5,10 @@
 ## 演示
 
 <p align="center">
-  <img src="assets/demo/onboarding.jpg" alt="灵映本地处理与隐私说明" width="220">
-  <img src="assets/demo/gesture-interaction.gif" alt="手势交互演示" width="220">
-  <img src="assets/demo/face-experience.gif" alt="面部互动演示" width="220">
+  <img src="assets/demo/onboarding.jpg" alt="灵映本地处理与隐私说明" width="200">
+  <img src="assets/demo/gesture-interaction.gif" alt="手势交互演示" width="200">
+  <img src="assets/demo/face-experience.gif" alt="面部互动演示" width="200">
+  <img src="assets/demo/global-control.gif" alt="全局手势控制地图演示，地图信息已模糊" width="200">
 </p>
 
 ## 代码结构
