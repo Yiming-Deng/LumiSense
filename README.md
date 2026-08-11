@@ -2,6 +2,14 @@
 
 灵映是一款完全离线运行的 Android 视觉交互应用。它使用前置摄像头完成手部检测、21 点关键点定位、静态手势分类、动态手势交互，以及面部表情、头部动作和虚拟形象驱动。相机帧只在设备本地处理。
 
+## 演示
+
+<p align="center">
+  <img src="assets/demo/onboarding.jpg" alt="灵映本地处理与隐私说明" width="220">
+  <img src="assets/demo/gesture-interaction.gif" alt="手势交互演示" width="220">
+  <img src="assets/demo/face-experience.gif" alt="面部互动演示" width="220">
+</p>
+
 ## 代码结构
 
 - `app`：CameraX、Compose 界面、识别链路、全局手势控制和虚拟形象。
